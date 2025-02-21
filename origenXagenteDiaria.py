@@ -1,5 +1,6 @@
 import pandas as pd
-
+import seaborn as sn
+import matplotlib.pyplot as plt
 # Configuración
 archivo_entrada = "datos.csv"
 archivo_salida = "estadisticas_agentes_por_dia.csv"

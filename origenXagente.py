@@ -22,14 +22,26 @@ for chunk in pd.read_csv(
     chunk_filtrado = chunk[
         (chunk["Nombre Agente"].notna()) & 
         (chunk["Origen Corte"] == "Agente")
+        #HORARIO MAÑANA O TARDE ("Inicio") = "turno elegido por el usuario"
+        #RANGO FECHA ("Inicio") MAYOR "RANGO INGRESADO MAYOT " ("INICIO") MENOR  "rango ingresado MENOR"
     ]
-    
+    # 10/11/2024
+    # 10/12/2024
+
+
+    # 1= MAÑANA
+    # 2= TARDE
+    # 3 = LO DO
+    # 4 - GENERAL
+
+
     # Contar las veces que cada agente aparece
     conteo = chunk_filtrado["Nombre Agente"].value_counts().to_dict()
     
     # Sumar los resultados al acumulador
     for agente, cantidad in conteo.items():
         resultado[agente] = resultado.get(agente, 0) + cantidad
+
 
 # Crear DataFrame con los resultados
 df_resultado = pd.DataFrame(
